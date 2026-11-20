@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="id" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -619,7 +617,7 @@
           <div>
             <h3 class="text-lg font-bold text-white">Sonora</h3>
             <div class="flex items-center gap-2 mt-1">
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-white/15 text-white/90">4.0.8</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-white/15 text-white/90">4.0.9</span>
               <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300">SELF-CONTAINED PWA</span>
             </div>
           </div>
@@ -763,11 +761,15 @@
 
       <div class="relative z-10 flex-1 my-4 flex flex-col justify-center overflow-hidden">
         <div id="full-lyrics-view" class="w-full h-full rounded-[30px] bg-black/25 backdrop-blur-md border border-white/10 p-5 flex flex-col justify-between overflow-hidden">
-          <div class="flex items-center justify-between pb-2">
-            <span class="text-[10px] uppercase tracking-widest text-white/45 font-semibold">Synced Lyrics • Tap baris untuk lompat</span>
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/60">Sonora Sync</span>
+          <div class="flex items-center justify-between pb-2 gap-2">
+            <span class="text-[10px] uppercase tracking-widest text-white/45 font-semibold truncate">Tap baris untuk lompat</span>
+            <div class="flex items-center gap-1 shrink-0">
+              <button id="btn-lyric-sync-minus" type="button" class="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-[10px] font-bold text-white/80" title="Percepat lirik 0.5 detik">-0.5s</button>
+              <button id="btn-lyric-sync-reset" type="button" class="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-[10px] font-semibold text-cyan-200 tabular-nums" title="Reset offset lirik">0.0s</button>
+              <button id="btn-lyric-sync-plus" type="button" class="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-[10px] font-bold text-white/80" title="Perlambat lirik 0.5 detik">+0.5s</button>
+            </div>
           </div>
-          <div id="lyrics-scroll-container" class="flex-1 overflow-y-auto no-scrollbar py-6 space-y-5 text-center flex flex-col items-center"></div>
+          <div id="lyrics-scroll-container" class="flex-1 overflow-y-auto no-scrollbar py-12 space-y-5 text-center flex flex-col items-center"></div>
         </div>
 
         <div id="full-artwork-view" class="hidden w-full flex-col items-center justify-center">
@@ -965,29 +967,30 @@
         isRemoteStream: true,
         audioUrl: './nothing-without-you.mp3',
         lyrics: [
-          { time: 30, text: 'Like water in the desert' },
-          { time: 35, text: 'Impossible to find' },
-          { time: 41, text: 'You found me when I was broken' },
-          { time: 44, text: 'Put me back together, gave me life' },
-          { time: 51, text: 'Like a flower in the concrete' },
-          { time: 56, text: 'So beautiful and rare' },
-          { time: 62, text: 'You gave me hope when I was empty' },
-          { time: 66, text: 'Walked me through the fire, you were there' },
-          { time: 72, text: "You're the sun to the moon" },
-          { time: 77, text: "You're my ocean painted blue" },
-          { time: 82, text: "You, I'm nothing without you" },
-          { time: 94, text: 'Like an angel in a nightmare' },
-          { time: 99, text: 'You opened up my eyes' },
-          { time: 105, text: "Looking in all the wrong places, you're the one I needed this whole time" },
-          { time: 114, text: "You're the sun to the moon" },
-          { time: 120, text: "You're my ocean painted blue" },
-          { time: 125, text: "You, I'm nothing without you" },
-          { time: 136, text: "You're the light in the dark" },
-          { time: 141, text: "You're the arrow through my heart" },
-          { time: 146, text: "You, I'm nothing without you" },
-          { time: 175, text: "You're the air in my lungs" },
-          { time: 180, text: "You're the veins to my blood" },
-          { time: 185, text: "Yeah you, I'm nothing without you" }
+          { time: 0.0, text: '♪ Intro Instrumental ♪' },
+          { time: 30.8, text: 'Like water in the desert' },
+          { time: 36.2, text: 'Impossible to find' },
+          { time: 41.5, text: 'You found me when I was broken' },
+          { time: 45.2, text: 'Put me back together, gave me life' },
+          { time: 51.8, text: 'Like a flower in the concrete' },
+          { time: 57.2, text: 'So beautiful and rare' },
+          { time: 62.6, text: 'You gave me hope when I was empty' },
+          { time: 66.8, text: 'Walked me through the fire, you were there' },
+          { time: 73.0, text: "You're the sun to the moon" },
+          { time: 78.2, text: "You're my ocean painted blue" },
+          { time: 83.2, text: "You, I'm nothing without you" },
+          { time: 95.0, text: 'Like an angel in a nightmare' },
+          { time: 100.2, text: 'You opened up my eyes' },
+          { time: 105.8, text: "Looking in all the wrong places, you're the one I needed this whole time" },
+          { time: 115.2, text: "You're the sun to the moon" },
+          { time: 120.5, text: "You're my ocean painted blue" },
+          { time: 125.6, text: "You, I'm nothing without you" },
+          { time: 136.8, text: "You're the light in the dark" },
+          { time: 142.0, text: "You're the arrow through my heart" },
+          { time: 147.2, text: "You, I'm nothing without you" },
+          { time: 175.8, text: "You're the air in my lungs" },
+          { time: 181.0, text: "You're the veins to my blood" },
+          { time: 186.2, text: "Yeah you, I'm nothing without you" }
         ]
       }
     ];
@@ -1023,6 +1026,8 @@
       searchQuery: '',
       currentSongIndex: 0,
       currentTime: 0,
+      lyricOffsetSec: 0,
+      lastRenderedLyricIdx: -1,
       isPlaying: false,
       isShuffle: false,
       isRepeat: false,
@@ -1143,7 +1148,7 @@
       if (!song) return;
       const duration = Math.max(1, Number(song.duration) || 180);
       const clamped = Math.max(0, Math.min(Number(targetSec) || 0, duration));
-      state.currentTime = Math.floor(clamped);
+      state.currentTime = clamped;
 
       if ((song.isLocalFile || song.isRemoteStream) && nativeAudio && isFinite(nativeAudio.duration) && nativeAudio.duration > 0) {
         try {
@@ -1329,7 +1334,7 @@
         if (song.isRemoteStream && !nativeAudio.paused) return;
 
         const dur = Math.max(1, Number(song.duration) || 180);
-        state.currentTime += 1;
+        state.currentTime += 0.25;
         if (state.currentTime >= dur) {
           if (state.isRepeat) {
             state.currentTime = 0;
@@ -1339,7 +1344,7 @@
           }
         }
         updateProgressAndLyrics();
-      }, 1000);
+      }, 250);
     }
 
     function stopPlaybackLoop() {
@@ -1467,6 +1472,7 @@
       }
       state.currentSongIndex = ((index % SONGS.length) + SONGS.length) % SONGS.length;
       state.currentTime = 0;
+      state.lastRenderedLyricIdx = -1;
       state.isPlaying = Boolean(autoPlay);
 
       const song = getCurrentSong();
@@ -1557,11 +1563,19 @@
       }
     }
 
+    function updateLyricOffsetBadge() {
+      const resetBtn = document.getElementById('btn-lyric-sync-reset');
+      if (!resetBtn) return;
+      const sign = state.lyricOffsetSec > 0 ? '+' : '';
+      resetBtn.textContent = `${sign}${state.lyricOffsetSec.toFixed(1)}s`;
+    }
+
     function renderLyricsList() {
       const container = document.getElementById('lyrics-scroll-container');
       if (!container) return;
       const song = getCurrentSong();
       const lyrics = (song && song.lyrics) || [];
+      state.lastRenderedLyricIdx = -1;
 
       if (!lyrics.length) {
         container.innerHTML = `
@@ -1578,7 +1592,7 @@
           type="button"
           data-lyric-time="${line.time}"
           data-lyric-idx="${idx}"
-          class="lyric-line text-lg font-bold text-white/45 hover:text-white/85 transition cursor-pointer px-2"
+          class="lyric-line text-lg font-bold text-white/40 hover:text-white/85 transition cursor-pointer px-2 leading-snug"
         >
           ${line.text}
         </button>
@@ -1586,8 +1600,8 @@
 
       container.querySelectorAll('[data-lyric-time]').forEach((btn) => {
         btn.addEventListener('click', () => {
-          const t = Number(btn.getAttribute('data-lyric-time')) || 0;
-          seekToAbsoluteTime(t);
+          const t = (Number(btn.getAttribute('data-lyric-time')) || 0) + state.lyricOffsetSec;
+          seekToAbsoluteTime(Math.max(0, t));
         });
       });
     }
@@ -1612,20 +1626,33 @@
       const lyrics = (song && song.lyrics) || [];
       if (!lyrics.length) return;
 
+      const effectiveLyricTime = current - state.lyricOffsetSec;
       let activeIdx = 0;
       for (let i = 0; i < lyrics.length; i++) {
-        if (current >= lyrics[i].time) activeIdx = i;
+        if (effectiveLyricTime >= lyrics[i].time) activeIdx = i;
       }
 
-      document.querySelectorAll('#lyrics-scroll-container .lyric-line').forEach((el, idx) => {
+      const container = document.getElementById('lyrics-scroll-container');
+      const lines = container ? container.querySelectorAll('.lyric-line') : [];
+      lines.forEach((el, idx) => {
         if (idx === activeIdx) {
-          el.classList.remove('text-white/45', 'text-lg');
+          el.classList.remove('text-white/40', 'text-lg');
           el.classList.add('text-white', 'text-xl', 'scale-105');
         } else {
           el.classList.remove('text-white', 'text-xl', 'scale-105');
-          el.classList.add('text-white/45', 'text-lg');
+          el.classList.add('text-white/40', 'text-lg');
         }
       });
+
+      if (container && activeIdx !== state.lastRenderedLyricIdx && lines[activeIdx]) {
+        state.lastRenderedLyricIdx = activeIdx;
+        const activeEl = lines[activeIdx];
+        const targetScroll = activeEl.offsetTop - (container.clientHeight / 2) + (activeEl.clientHeight / 2);
+        container.scrollTo({
+          top: Math.max(0, targetScroll),
+          behavior: 'smooth'
+        });
+      }
     }
 
     function updatePlayerUI() {
@@ -1682,6 +1709,7 @@
 
       updateLikeIcons();
       applyAdaptiveTheme();
+      updateLyricOffsetBadge();
       renderLyricsList();
       updateProgressAndLyrics();
       updateMediaSessionMetadata();
@@ -2225,7 +2253,7 @@
       nativeAudio.addEventListener('timeupdate', () => {
         const song = getCurrentSong();
         if (song && (song.isLocalFile || song.isRemoteStream)) {
-          state.currentTime = Math.floor(nativeAudio.currentTime);
+          state.currentTime = nativeAudio.currentTime;
           updateProgressAndLyrics();
         }
       });
@@ -2256,8 +2284,8 @@
       document.getElementById('btn-open-notifications')?.addEventListener('click', () => {
         openModal('Notifikasi Sonora', `
           <div class="glass-card rounded-2xl p-3 text-xs space-y-1">
-            <p class="font-semibold text-white">Mode Mandiri 1 File Aktif</p>
-            <p class="text-white/60">Manifest dan ikon aplikasi sudah tertanam langsung di dalam index.html.</p>
+            <p class="font-semibold text-white">Kalibrasi Lirik Tersinkronisasi Aktif</p>
+            <p class="text-white/60">Gunakan tombol -0.5s / +0.5s di layar lirik jika ingin menyesuaikan ketukan lirik secara langsung.</p>
           </div>
         `);
       });
@@ -2449,6 +2477,8 @@
         if (fp) {
           fp.classList.remove('closed');
           fp.classList.add('open');
+          state.lastRenderedLyricIdx = -1;
+          updateProgressAndLyrics();
         }
       });
 
@@ -2458,6 +2488,25 @@
           fp.classList.remove('open');
           fp.classList.add('closed');
         }
+      });
+
+      document.getElementById('btn-lyric-sync-minus')?.addEventListener('click', () => {
+        state.lyricOffsetSec = Math.round((state.lyricOffsetSec - 0.5) * 10) / 10;
+        updateLyricOffsetBadge();
+        updateProgressAndLyrics();
+      });
+
+      document.getElementById('btn-lyric-sync-plus')?.addEventListener('click', () => {
+        state.lyricOffsetSec = Math.round((state.lyricOffsetSec + 0.5) * 10) / 10;
+        updateLyricOffsetBadge();
+        updateProgressAndLyrics();
+      });
+
+      document.getElementById('btn-lyric-sync-reset')?.addEventListener('click', () => {
+        state.lyricOffsetSec = 0;
+        updateLyricOffsetBadge();
+        updateProgressAndLyrics();
+        showToast('Sinkronisasi lirik direset ke 0.0s');
       });
 
       document.getElementById('mini-play-btn')?.addEventListener('click', (e) => {
@@ -2514,6 +2563,8 @@
           artView?.classList.add('hidden');
           artView?.classList.remove('flex');
           if (modeBtn) modeBtn.textContent = 'Sampul';
+          state.lastRenderedLyricIdx = -1;
+          updateProgressAndLyrics();
         } else {
           lyricsView?.classList.add('hidden');
           artView?.classList.remove('hidden');
